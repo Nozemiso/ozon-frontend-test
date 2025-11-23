@@ -1,0 +1,102 @@
+@import url(./reset.css);
+@import url(./variables.css);
+@import url(../fonts/fonts.css);
+@import url(../components/progress/progress.css);
+
+
+.root {
+    padding: 30px;
+    height: 100vh;
+    font-family: 'GTEestiDisplay', Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+}
+
+.header {
+    font-size: 32pt;
+}
+
+.demo-container {
+    align-self: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: calc(100% - 30px);
+}
+
+@media (orientation: landscape) {
+    .demo-container {
+        flex-direction: row;
+    }
+}
+
+.progress-container {
+    width: 300px;
+    height: 300px;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    justify-content: space-evenly;
+    align-items: center;
+    column-gap: 40px;
+}
+
+.inputs__value-input {
+    -webkit-appearance: textfield;
+    -moz-appearance:    textfield;
+    appearance:         textfield;
+
+    display: block;
+    font-size: 35pt;
+    border: 3px solid var(--text-color);
+    height: fit-content;
+    border-radius: 50ch;
+    text-align: center;
+}
+
+.inputs__value-label {
+    font-size: 26pt;
+}
+
+.slider {
+    margin: 0;
+    appearance: none;
+    height: fit-content;
+    border-radius: 50ch;
+    background-color: var(--secondary-color);
+    width: auto;
+    height: 48pt;
+    transition: 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.slider:checked {
+    background-color: var(--accent-color);
+    transition: 0.5s ease-in-out;
+}
+
+.slider::after {
+    content: '';
+    left: 4px;
+    position: absolute;
+    background-color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    transition: all 0.3s ease-out;
+}
+
+.slider:checked::after {
+    margin-left: calc(100% - 56px - 8px);
+    transition: all 0.3s ease-out;
+}
+
